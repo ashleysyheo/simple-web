@@ -1,0 +1,95 @@
+@font-face {
+    font-family: Helvetica Neue;
+    src: url("type/Helvetica-Neue-Medium.otf");
+}
+
+@font-face {
+    font-family: Helvetica Neue Bold;
+    src: url("type/Helvetica-Neue-Bold.otf");
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica Neue;
+    overflow: hidden;
+    cursor: default;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+}
+
+.heading {
+    margin: 20px 40px;
+    font-size: 1.5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#project-name {
+    width: 30vw;
+}
+
+#project-name:hover {
+    filter: blur(2px);
+}
+
+#about {
+    cursor: pointer;
+}
+
+input[type=button] {
+    background-color: white;
+    border: none;
+    font-family: Helvetica Neue;
+    font-size: 1.3vw;
+}
+
+input[type=button]:focus {
+    outline: none;
+}
+
+input[type=button]:hover {
+    filter: blur(2px);
+}
+
+.video-container {
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+iframe {
+    width: 50vw;
+    height: 50vh;
+}
+
+.download {
+    position: absolute;
+    bottom: 0;
+    margin: 30px 40px;
+    font-size: 1.3vw;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    filter: blur(2px);
+}
+
+/*
+filter: blur(10px) contrast(100) saturate(0.76) opacity(.8) brightness(69%) hue-rotate(322deg) invert(100%);
+*/

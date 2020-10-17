@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="icon" href="./favicon.ico" />
+        <title>(simple web)</title>
+    </head>
+
+    <body>
+        <main>
+            <div class="heading">
+                <div id="project-name">(simple web)</div>
+                <input id="about" type="button" value="about" onclick="about(this)">
+            </div>
+            <div class="video-container">
+                <iframe id="frame" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL_N4QbrptRzqWYR_HNh7NxcXK-T3HQP5g&autoplay=1&controls=0&showinfo=1&loop=1" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+            <div class="download">
+                download extension<br />
+                <a target="_blank" href="https://chrome.google.com/webstore/detail/hcemjhejnodgepglllhlaopkpnlgeeim/publish-accepted?authuser=1&hl=en">chrome</a> <a target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/simple-web/?src=search">firefox</a>
+            </div>
+        </main>
+
+        <script>
+            function about(self) {
+                var target = document.getElementById('about');
+
+                if(self.value === 'about') {
+                    self.value = 'back';
+                    document.getElementById('project-name').innerHTML = '(simple web) is an ode to the creative nature of the web through simple and abstract shapes and beautiful colors.'
+                } else {
+                    self.value = "about";
+                    document.getElementById('project-name').innerHTML = "(simple web)"
+                }
+            };
+
+            var min = 0;
+            var max = 359;
+            var interval;
+
+            function loadRandom(min, max) {
+                var result = Math.floor(Math.random() * (max - min + 1) + min);
+                console.log('random value for hue-rotation: ', result);
+                document.getElementById("frame").style.filter = "blur(10px) contrast(100) saturate(0.76) brightness(69%) hue-rotate(" + result + "deg) invert(100%)";
+            }
+
+            loadRandom(min, max);
+
+            function startTimer() {
+                interval = setInterval(
+                    function() {
+                        loadRandom(min, max);
+                    }, 2500);
+            }
+
+            $('#frame').hover(function(ev) {
+                clearInterval(interval);
+                document.getElementById("frame").style.filter = "none"
+            }, function(ev) {
+                loadRandom(min, max);
+                startTimer();
+            });
+        </script>
+    </body>
+
+</html>
